@@ -13,7 +13,7 @@ import java.net.URL;
 import java.util.UUID;
 
 public class ApiClient {
-    private static final String BASE_URL = "http://192.168.3.8:5000"; // 请确保此IP在你的局域网内可达
+    private static final String BASE_URL = "http://192.168.3.7:5000"; // 请确保此IP在你的局域网内可达
     private static final String TAG = "ApiClient";
 
     public interface ApiCallback {
@@ -93,7 +93,7 @@ public class ApiClient {
                 DataOutputStream dos = null;
                 FileInputStream fis = null;
                 try {
-                    URL url = new URL(BASE_URL + "/analyze_image"); // 假设后端接口路径
+                    URL url = new URL(BASE_URL + "/api/v1/emotion/detect"); // 假设后端接口路径
                     conn = (HttpURLConnection) url.openConnection();
                     conn.setDoInput(true);
                     conn.setDoOutput(true);
