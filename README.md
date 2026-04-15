@@ -32,8 +32,13 @@ app/src/main/java/edu/hebut/test1/
 │   └── UserDao.java           # 用户数据访问对象
 ├── network/             # 网络通信相关
 │   └── ApiClient.java         # 网络请求工具类
+├── CameraActivity.java        # 拍照活动
+├── HomeFragment.java          # 首页Fragment
 ├── LoginActivity.java         # 登录活动
-└── MainActivity.java          # 主活动
+├── MainActivity.java          # 主活动
+├── ProfileFragment.java       # 个人中心Fragment
+├── RegisterActivity.java      # 注册活动
+└── ReportFragment.java        # 日报Fragment
 ```
 
 ### 后端结构
@@ -58,12 +63,36 @@ D:/Android/pyteat/
    - 用户注册和登录
    - 本地SQLite数据库存储
 
-2. **主界面**
+2. **底部导航栏**
+   - 首页：宠物心情识别和管理
+   - 日报：查看宠物情绪趋势
+   - 我的：个人信息和设置
+
+3. **首页功能**
+   - 猫/狗切换：支持识别不同宠物
    - 拍照识别：拍摄宠物照片并分析
    - 视频分析：上传或录制视频进行分析
-   - 查看报告：查看历史分析报告
+   - 宠物日报：查看历史分析报告
 
-3. **前后端通信**
+4. **日报功能**
+   - 情绪趋势：展示最近7天情绪变化
+   - 当日心情：显示宠物当前心情状态
+   - 互动建议：根据心情提供互动建议
+
+5. **个人中心**
+   - 个人信息：显示用户基本信息
+   - 宠物管理：管理宠物档案
+   - 设置：应用相关设置
+   - 关于我们：应用信息
+
+6. **拍照功能**
+   - 相机预览：实时相机预览
+   - 拍照：拍摄宠物照片
+   - 上传照片：从相册选择照片
+   - 翻转相机：切换前后摄像头
+   - 模式切换：拍照/视频模式切换
+
+7. **前后端通信**
    - 测试通信连接
    - 发送图片和视频数据
    - 接收分析结果
@@ -109,6 +138,47 @@ D:/Android/pyteat/
 ### 报告接口
 - **GET /reports** - 获取历史报告
   - 响应：`{"reports": [{"date": "2026-04-14", "emotions": {...}, "behaviors": {...}}], "status": "success"}`
+
+- **POST /reports** - 保存分析报告
+  - 请求：`{"date": "2026-04-14", "pose": "sitting", "emotion": "calm", "confidence": 0.95}`
+  - 响应：`{"id": "1", "status": "success"}`
+
+### 前端实现
+
+#### ApiClient类
+- **sendPostRequest(String endpoint, String jsonData, ApiCallback callback)** - 发送POST请求
+- **analyzeImage(String imagePath, ApiCallback callback)** - 分析图片
+- **analyzeVideo(String videoPath, ApiCallback callback)** - 分析视频
+- **getReports(ApiCallback callback)** - 获取报告
+
+#### 接口调用示例
+```java
+// 测试通信
+ApiClient.sendPostRequest("/test", "{\"message\": \"Hello from Android\"}", new ApiClient.ApiCallback() {
+    @Override
+    public void onSuccess(String response) {
+        // 处理成功响应
+    }
+    
+    @Override
+    public void onError(String error) {
+        // 处理错误
+    }
+});
+
+// 分析图片
+ApiClient.analyzeImage(imagePath, new ApiClient.ApiCallback() {
+    @Override
+    public void onSuccess(String response) {
+        // 处理分析结果
+    }
+    
+    @Override
+    public void onError(String error) {
+        // 处理错误
+    }
+});
+```
 
 ## 数据库配置
 

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFF8E1"
+    android:padding="24dp">
+
+    <!-- 顶部栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="24dp">
+
+        <!-- 用户头像 -->
+
+        <!-- 标题 -->
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginRight="16dp"
+            android:background="#FFFFFF"
+            android:contentDescription="用户头像"
+            android:padding="8dp"
+            android:src="@drawable/ic_user" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="主页高保真"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#E65100" />
+
+    </LinearLayout>
+
+    <!-- 猫/狗切换器 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingHorizontal="16dp"
+        android:layout_marginBottom="24dp"
+        android:elevation="2dp">
+
+        <ImageView
+            android:id="@+id/iv_cat"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_cat"
+            android:alpha="1.0"
+            android:contentDescription="猫" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="32dp"
+            android:background="#E0E0E0"
+            android:layout_marginHorizontal="16dp" />
+
+        <ImageView
+            android:id="@+id/iv_dog"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_dog"
+            android:alpha="0.5"
+            android:contentDescription="狗" />
+
+    </LinearLayout>
+
+    <!-- 欢迎卡片 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFE0B2"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        android:layout_marginBottom="24dp"
+        android:elevation="4dp"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_welcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="你好，XX的主人！"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#E65100"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_pet_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="今天[宠物名]心情怎么样？"
+                android:textSize="14sp"
+                android:textColor="#BF360C" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_pet_icon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_cat"
+            android:contentDescription="宠物图标" />
+
+    </LinearLayout>
+
+    <!-- 功能按钮 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="24dp">
+
+        <!-- 心情识别按钮 -->
+        <LinearLayout
+            android:id="@+id/btn_mood_recognition"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:layout_weight="1"
+            android:background="#FFAB91"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            android:layout_marginRight="12dp"
+            android:elevation="2dp">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_camera"
+                android:contentDescription="相机" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="心情识别"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="16dp" />
+
+        </LinearLayout>
+
+        <!-- 宠物日报按钮 -->
+        <LinearLayout
+            android:id="@+id/btn_pet_report"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:layout_weight="1"
+            android:background="#FFCC80"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            android:layout_marginLeft="12dp"
+            android:elevation="2dp">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_calendar"
+                android:contentDescription="日历" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="宠物日报"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="16dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

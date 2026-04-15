@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FFFFFF"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
     <!-- 顶部渐变背景 - 白色到橙色平滑过渡 -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="320dp"
+        android:layout_height="300dp"
         android:background="@drawable/bg_header_gradient"
         android:orientation="vertical"
         android:gravity="center"
@@ -27,11 +27,11 @@
             android:layout_marginBottom="24dp"
             android:contentDescription="宠物爪印" />
 
-        <!-- 欢迎标题 -->
+        <!-- 标题 -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="欢迎回来！"
+            android:text="创建账号"
             android:textSize="28sp"
             android:textStyle="bold"
             android:textColor="#E65100"
@@ -41,14 +41,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="登录以了解你的宠物心情"
+            android:text="加入我们，开始了解你的宠物心情"
             android:textSize="16sp"
             android:textColor="#BF360C"
             android:alpha="0.9" />
 
     </LinearLayout>
 
-    <!-- 登录表单 -->
+    <!-- 注册表单 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -71,7 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="16dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -96,7 +96,7 @@
                         android:layout_marginRight="12dp" />
 
                     <EditText
-                        android:id="@+id/et_username"
+                        android:id="@+id/et_email"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="petlover@example.com"
@@ -142,7 +142,7 @@
                         android:id="@+id/et_password"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="密码"
+                        android:hint="至少6位密码"
                         android:inputType="textPassword"
                         android:background="@null"
                         android:layout_toRightOf="@id/iv_lock"
@@ -164,30 +164,61 @@
 
             </LinearLayout>
 
-            <!-- 忘记密码 -->
-            <TextView
-                android:id="@+id/tv_forgot_password"
-                android:layout_width="wrap_content"
+            <!-- 确认密码输入框 -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="忘记密码？"
-                android:textSize="14sp"
-                android:textColor="#E65100"
-                android:layout_gravity="right"
-                android:layout_marginBottom="24dp" />
+                android:orientation="vertical"
+                android:layout_marginBottom="24dp">
 
-            <!-- 登录按钮 - 更深的橙色 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="确认密码"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:layout_marginBottom="8dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="#F5F5F5"
+                    android:paddingHorizontal="16dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_lock"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="12dp" />
+
+                    <EditText
+                        android:id="@+id/et_confirm_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="再次输入密码"
+                        android:inputType="textPassword"
+                        android:background="@null"
+                        android:layout_toRightOf="@id/iv_lock"
+                        android:paddingLeft="12dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!-- 注册按钮 - 更深的橙色 -->
             <Button
-                android:id="@+id/btn_login"
+                android:id="@+id/btn_register"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:text="登录 →"
+                android:text="注册 →"
                 android:textSize="18sp"
                 android:textColor="#FFFFFF"
                 android:background="@drawable/bg_button_orange"
                 android:layout_marginBottom="24dp"
                 android:elevation="4dp" />
 
-            <!-- 注册链接 -->
+            <!-- 已有账号 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -197,15 +228,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="还没有账号？"
+                    android:text="已有账号？"
                     android:textSize="14sp"
                     android:textColor="#666666" />
 
                 <TextView
-                    android:id="@+id/tv_register"
+                    android:id="@+id/tv_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="立即注册"
+                    android:text="立即登录"
                     android:textSize="14sp"
                     android:textColor="#E65100"
                     android:textStyle="bold"
@@ -216,24 +247,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
-        <!-- 测试通信按钮（隐藏） -->
-        <Button
-            android:id="@+id/btn_test_connection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="测试前后端通信"
-            android:layout_marginTop="16dp"
-            android:visibility="gone" />
-
-        <!-- 通信测试结果（隐藏） -->
-        <TextView
-            android:id="@+id/tv_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:textSize="16sp"
-            android:visibility="gone" />
 
     </LinearLayout>
 
